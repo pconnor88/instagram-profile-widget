@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Roboto:400,500' rel='stylesheet' type='text/css'>
+
+<style>
+	
+	html,body {margin:0; padding:0; min-height:100%;}
+	
+	body {
+		background-image: url(img/bg.jpg); 
+		background-size:cover;
+		background-position:center;
+		background-repeat:no-repeat;
+	}
+	
+	#widget, #tasha {
+		margin:50px auto; 	
+	}
+	
+	.insta-profile-widget {
+		width:294px; 
+		height:250px; 
+		border:1px solid #000000; 
+		box-shadow: 0px 1px 3px rgba(0,0,0,0.4); 
+		border-radius:5px; 
+		background:#ffffff;
+		overflow:hidden;
+	}
+	
+	.insta-profile-images {
+		position:relative;	
+		height:155px;
+	}
+	
+	.insta-profile-images:after {
+		
+		content: "";
+		display:block;
+		width:100%;
+		height:100%;
+		position:absolute;
+		bottom:0px;
+		left:0px;
+		
+	
+	}
+	
+	.insta-profile-table {
+		display:table;
+    	width:100%;
+    	table-layout:fixed;
+		border-collapse:collapse;
+		margin-top:-1px;
+		margin-left:-1px;
+	}
+	
+	.insta-profile-cell {
+		display:table-cell;
+    	width:98px;
+		height:75px;
+    	border:solid black 1px;
+		background-size: 110px;
+		background-position: center;
+		background-color:#000000;	
+		-webkit-filter: sepia(50%);	
+		overflow:hidden;
+		position:relative;
+	}
+	
+	.insta-profile-cell:after {
+		content:"";
+		width:100%;
+		height:76px;
+		display:block;
+		border:1px solid rgba(255,255,255,0.2);
+		box-sizing:border-box;
+		margin-top:0px;	
+		position:absolute;
+		z-index:999;
+		top:0px;
+		left:0px;
+	}
+	
+	.insta-profile-cell-image {
+		width:98px;
+		height:75px;
+		background-size: 110px;
+		background-position: center;
+		display:none;
+		position:relative;
+		z-index:1;
+	}
+	
+	.insta-profile-cell-image.load {
+		opacity:1;	
+	}
+	
+	.insta-profile-details {
+		position:relative;
+		background: #ffffff; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f3f3f3)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f3f3f3',GradientType=0 ); /* IE6-9 */
+		height:48px;
+		border-bottom:1px solid #cecece;
+	}
+	
+	.insta-profile-details h1 {
+		text-align:center;
+		font-size:17px;
+		line-height:50px;
+		font-family: 'Roboto', sans-serif;
+		font-weight:500;
+		margin:0;
+		letter-spacing: -0.04em;
+		text-shadow: 1px 0px 0px #ffffff;	
+	}
+	
+	.insta-profile-icon {
+		width:24px;
+		height:25px;
+		background-image: url(img/icon.png);
+		position:absolute;
+		left:12px;
+		top:50%;
+		margin-top:-11px;
+	}
+	
+	.insta-profile-avatar {
+		padding:4px;
+		background-color:#ffffff;
+		border:1px solid rgba(0,0,0,0.6);
+		border-radius:5px;
+		width:70px;
+		height:70px;
+		position:absolute;
+		left:50%;
+		top:-70px;
+		margin-left:-39px;
+		box-shadow: 0px 0px 3px rgba(0,0,0,0.4); 
+	}
+	
+	.insta-profile-avatar img {
+		width:70px;
+		height:70px;
+		border-radius:5px;
+	}
+	
+	.insta-profile-avatar a {
+		display:block;	
+		position:relative;
+	}
+	
+	.insta-profile-avatar a:after {
+		content: "";
+		width:10px; 
+		height:10px;
+		background:none;
+		z-index:99999;
+		position:absolute;
+		display:block;
+		top:0px;
+		left:0px;
+		width:68px;
+		height:68px;
+		border:1px solid rgba(0,0,0,0.6);
+		border-radius:5px;
+	}
+	
+	.insta-profile-stat {
+		float:left;
+		box-sizing:border-box;
+		padding:7px 13px;	
+		font-size:10px;
+		color:#777777;
+		text-transform:uppercase;
+		font-family: 'Lato', sans-serif;	
+		font-weight:400;
+		text-align:center;
+	}
+	
+	.insta-profile-stat strong {
+		display:block;	
+		font-family:'Roboto', sans-serif;
+		color:#111111;
+		font-size:13px;
+	}
+	
+	.insta-profile-divider {
+		float:left;
+		width:1px;
+		height:50px;
+		background:#ececec;	
+	}
+	
+	.insta-profile-btn {
+		display:block;
+		float:right;
+		margin:9px;
+		padding:4px 11px;
+		font-size:12px;
+		color:#ffffff;
+		text-decoration:none;
+		border:1px solid #006314;
+		border-radius:3px;
+		font-family:'Roboto', sans-serif;
+		text-shadow:0px 1px 1px rgba(0,0,0,0.4);
+		background: rgb(72,199,99); /* Old browsers */
+		background: -moz-linear-gradient(top,  rgba(72,199,99,1) 0%, rgba(54,169,76,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(72,199,99,1)), color-stop(100%,rgba(54,169,76,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(72,199,99,1) 0%,rgba(54,169,76,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(72,199,99,1) 0%,rgba(54,169,76,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(72,199,99,1) 0%,rgba(54,169,76,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(72,199,99,1) 0%,rgba(54,169,76,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#48c763', endColorstr='#36a94c',GradientType=0 ); /* IE6-9 */
+		line-height: 17px;
+	}
+	
+	.insta-profile-btn:active {
+		background:#37aa4d;	
+	}
+	
+</style>
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.profile-widget.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#widget").ProfileWidget({
+		username: "pconnor88",
+		clientID: "d895ae037f7e4f598740cb1958155bd1"
+	});
+	
+	$("#tasha").ProfileWidget({
+		username: "tashaw2493",
+		clientID: "d895ae037f7e4f598740cb1958155bd1"
+	});
+});
+</script>
+
+
+</head>
+
+<body>
+	
+    <div id="widget"></div>
+    <div id="tasha"></div>
+
+</body>
+
+</html>
