@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Roboto:400,500' rel='stylesheet' type='text/css'>
+
+<style>
+	
+	html,body {margin:0; padding:0; min-height:100%;}
+	
+	body {
+		background-image: url(./demo_assets/bg.jpg); 
+		background-size:cover;
+		background-position:center;
+		background-repeat:no-repeat;
+	}
+	
+	#widget {
+		margin:50px auto; 	
+	}
+		
+</style>
+
+<link rel="stylesheet" href="./css/profile-widget.min.css">
+
+<script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery.profile-widget.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#widget").ProfileWidget({
+			username: "pconnor88",
+			clientID: "d895ae037f7e4f598740cb1958155bd1"
+		});
+	});
+</script>
+
+</head>
+
+<body>
+	
+    <div id="widget"></div>
+
+</body>
+
+</html>
