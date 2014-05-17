@@ -5,6 +5,7 @@ A jQuery Instagram profile widget for your website.
 ##Usage
 
 **Firstly, to be able to use this plugin, you must head over to the Instagram Developer area and create a new client as you will need a client ID to be able to fetch data from Instagram. It is easy to do and will only take a few minutes. http://instagram.com/developer/clients/register/
+
 Make a note of the client ID you are given once you have registered as you will need it later.**
 
 Add the following tags into the head element of your website:
@@ -20,7 +21,7 @@ Add the following tags into the head element of your website:
 The container for the plugin is just an empty `div` placed where you want the widget to appear on the page.
 
 ```html
-	<div id="widget"></div>
+<div id="widget"></div>
 ```
 
 To initiate the plugin add the following code into your document.ready function. Replace the username with your Instagram username and the clientID with the one you were given when you registered your client on the Instagram Developer page.
