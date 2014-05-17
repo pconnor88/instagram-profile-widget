@@ -1,12 +1,12 @@
-#instagram-profile-widget
+#Instagram Profile Widget
 
 A jQuery Instagram profile widget for your website.
 
 ##Usage
 
-**Firstly, to be able to use this plugin, you must head over to the Instagram Developer area and create a new client as you will need a client ID to be able to fetch data from Instagram. It is easy to do and will only take a few minutes. http://instagram.com/developer/clients/register/
+**Firstly, to be able to use this plugin, you must head over to the Instagram Developer area and create a new client as you will need a client ID to be able to fetch data from Instagram. It is easy to do and will only take a few minutes. http://instagram.com/developer/clients/register/**
 
-Make a note of the client ID you are given once you have registered as you will need it later.**
+**Make a note of the client ID you are given once you have registered as you will need it later.**
 
 Add the following tags into the head element of your website:
 
