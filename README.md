@@ -33,4 +33,6 @@ $("#widget").ProfileWidget({
 });
 ```
 
+##Demo
+
 You can see a live demo here: http://pconnor88.github.io
