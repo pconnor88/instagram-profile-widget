@@ -1,3 +1,13 @@
+------------------------------
+------------------------------
+
+#DUE TO INSTAGRAM UPDATE THEIR API ON THE 01/06/2016, THIS PLUGIN CAN NO LONGER USE THE CLIENT ID TOKEN TO ACCESS THE INSTAGRAM API, SO WILL NOT DISPLAY AND PROFILE INFORMATION OR IMAGES
+
+------------------------------
+------------------------------
+
+
+
 #Instagram Profile Widget
 
 A jQuery Instagram profile widget for your website.
