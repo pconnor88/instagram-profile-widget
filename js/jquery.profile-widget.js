@@ -53,52 +53,56 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		
 		callbackImages: function(data, o) {
 			
-			$.each(data.data, function(i, item) {
-				o.pictures.push(item.images.low_resolution.url);
-			});
-			
-			var startPictures = o.pictures.slice(0);
-			var pictureCount = 1;
-			var slots = $(o.element).find(".insta-profile-picture-slot");
-			
-			slots.each(function() {
+			if(data.data !== undefined) {
+
+				$.each(data.data, function(i, item) {
+					o.pictures.push(item.images.low_resolution.url);
+				});
 				
-				if(pictureCount <= o.pictures.length) {
+				var startPictures = o.pictures.slice(0);
+				var pictureCount = 1;
+				var slots = $(o.element).find(".insta-profile-picture-slot");
 				
-					var randomPic = Math.floor((Math.random() * startPictures.length));
-					var image = startPictures[randomPic];
+				slots.each(function() {
 					
-					startPictures.splice(randomPic,1);
+					if(pictureCount <= o.pictures.length) {
 					
-					var index =  slots.index($(this));
-										
-					setTimeout(function() {
-						o.fadeImage(index,image);
-					},200 * pictureCount);
+						var randomPic = Math.floor((Math.random() * startPictures.length));
+						var image = startPictures[randomPic];
+						
+						startPictures.splice(randomPic,1);
+						
+						var index =  slots.index($(this));
+											
+						setTimeout(function() {
+							o.fadeImage(index,image);
+						},200 * pictureCount);
+						
+						pictureCount++;
+					}
 					
-					pictureCount++;
+				});
+				
+				if(o.pictures.length > 6) {
+				
+					setInterval(function() {
+						
+						var unusedPictures = o.pictures.slice(0);
+						
+						slots.each(function() {
+							unusedPictures.splice(unusedPictures.indexOf($(this).data("bg")),1);
+						});
+									
+						var replaceTile = Math.floor((Math.random() * 6));
+						var image = unusedPictures[Math.floor((Math.random() * unusedPictures.length))];
+						
+						o.fadeImage(replaceTile,image);
+						
+						
+					}, 5000);
+					
 				}
-				
-			});
-			
-			if(o.pictures.length > 6) {
-			
-				setInterval(function() {
-					
-					var unusedPictures = o.pictures.slice(0);
-					
-					slots.each(function() {
-						unusedPictures.splice(unusedPictures.indexOf($(this).data("bg")),1);
-					});
-								
-					var replaceTile = Math.floor((Math.random() * 6));
-					var image = unusedPictures[Math.floor((Math.random() * unusedPictures.length))];
-					
-					o.fadeImage(replaceTile,image);
-					
-					
-				}, 5000);
-				
+
 			}
 			
 		},
@@ -114,18 +118,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		
 		callbackUsername: function(data, o) {
 
-			if(data.data.length > 0) 
-			{
-				o.userID = data.data[0].id;
-				$(o.element).find(".insta-profile-username").text(data.data[0].username);
-				$(o.element).find(".insta-profile-avatar").append("<a href=\"https://instagram.com/" + data.data[0].username + "\"><img src=\"" + data.data[0].profile_picture + "\"></a>");
-				$(o.element).find(".insta-profile-btn").attr("href", "https://instagram.com/" + data.data[0].username);
-				o.sendRequest("users/" + o.userID + "/", {}, o.callbackUserStats);
-				
-			} 
-			else 
-			{
-				alert("No user was found");
+			if(data.data !== undefined) {
+
+				if(data.data.length > 0) 
+				{
+					o.userID = data.data[0].id;
+					$(o.element).find(".insta-profile-username").text(data.data[0].username);
+					$(o.element).find(".insta-profile-avatar").append("<a href=\"https://instagram.com/" + data.data[0].username + "\"><img src=\"" + data.data[0].profile_picture + "\"></a>");
+					$(o.element).find(".insta-profile-btn").attr("href", "https://instagram.com/" + data.data[0].username);
+					o.sendRequest("users/" + o.userID + "/", {}, o.callbackUserStats);
+					
+				} 
+				else 
+				{
+					alert("No user was found");
+				}
 			}
 			
 			
